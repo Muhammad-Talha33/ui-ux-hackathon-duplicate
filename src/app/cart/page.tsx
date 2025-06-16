@@ -33,11 +33,6 @@ export default function CartPage() {
     });
   };
 
-  const handleQuantityChange = (id: string, quantity: number) => {
-    updateCartQuantity(id, quantity);
-    setCartItems(getCartItems());
-  };
-
   const calculatedTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.inventory, 0);
   };

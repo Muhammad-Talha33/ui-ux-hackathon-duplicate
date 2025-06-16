@@ -24,7 +24,6 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState<Product[]>([]);
 
   const searchParams = useSearchParams(); // Get search query from URL
   const searchQuery = searchParams.get("search")?.toLowerCase() || ""; // Extract search query from URL
