@@ -4,10 +4,13 @@ import { useEffect, useState } from "react";
 import { fetchProductBySlug } from "@/sanity/fetchProductBySlug"; // Function to fetch product data
 import { useRouter } from "next/navigation";
 import { HiMiniShoppingCart } from "react-icons/hi2";
+import Swal from "sweetalert2";
+import { addToCart } from "@/app/actions/action";
 
 type Product = {
+  _id: string;
   productName: string;
-  slug: string;
+  slug: { current: string };
   category: string;
   price: number;
   inventory: number;
@@ -43,9 +46,21 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
     getProduct();
   }, [slug, router]);
-  const addToCart = (products: Product) => {
-      alert(`${products.productName} added to cart`);
-  };
+
+    const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+      e.preventDefault()
+      Swal.fire({
+        position : "center",
+        icon : "success",
+        title : `${product.productName} added to your cart`,
+        showConfirmButton : false,
+        timer : 1000
+      })
+  
+      addToCart(product)
+      
+    }
+  
   if (loading) {
     return (
       <div className="text-center text-4xl h-full py-14 my-28 text-black">
@@ -71,10 +86,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <h3 className="text-[#9E3500] text-[20px] tracking-widest title-font mb-1">
               {product.status}
             </h3>
-            <h1 className="text-black text-5xl title-font font-medium mb-1">
+            <h1 className="text-black text-4xl md:text-5xl title-font font-medium mb-1">
               {product.productName}
             </h1>
-            <p className="mt-3 text-3xl text-gray-600 mb-3">
+            <p className="mt-3 text-2xl md:text-3xl text-gray-600 mb-3">
               {product.category}
             </p>
             <p className="title-font font-medium text-2xl text-black my-5">
@@ -84,7 +99,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               {product.description}
             </p>
             <div className="my-5">
-              <button onClick={() => addToCart(product)}  className="flex flex-row gap-3 text-white my-10 bg-[#111111] py-2 px-6 focus:outline-none hover:bg-indigo-600 duration-700 b rounded">
+              <button
+                onClick={(e) => handleAddToCart(e, product)}
+                className="flex flex-row gap-3 text-white my-10 bg-black py-2 px-6 focus:outline-none hover:bg-gray-800 b rounded"
+              >
                 <HiMiniShoppingCart className="text-white text-2xl" />
                 Add To Cart
               </button>
@@ -95,5 +113,3 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
     </section>
   );
 }
-
-

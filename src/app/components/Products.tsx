@@ -4,8 +4,11 @@ import { fetchProducts } from "../../sanity/fetchProducts"; // Import fetch func
 import { useSearchParams } from "next/navigation"; // For URL query parameters
 import Link from "next/link";
 import { HiMiniShoppingCart } from "react-icons/hi2";
+import { addToCart } from "../actions/action";
+import Swal from "sweetalert2";
 
-type Product = {
+export type Product = {
+  _id: string;
   productName: string;
   slug: { current: string };
   category: string;
@@ -48,9 +51,44 @@ export default function Products() {
     setFilteredProducts(filtered);
   }, [searchQuery, products]);
 
-  const addToCart = (product: Product) => {
-    setCart((prevCart) => [...prevCart, product]);
-    alert(`${product.productName} added to cart`);
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.preventDefault();
+    Swal.fire({
+      position: "top-right",
+      toast: true,
+      showConfirmButton: false,
+      showCloseButton: true,
+      timer: 6000,
+      timerProgressBar: true,
+      width: 350,
+      background: "#ffffff",
+      icon: "success",
+      html: `
+    <div style="display: flex; align-items: center;">
+      <img src="${product.imageUrl}" style="width: 48px; height: 48px; border-radius: 6px; object-fit: cover; margin-right: 12px;" />
+      <div style="flex: 1;">
+        <div style="font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 4px;">
+          ${product.productName} added to your cart
+        </div>
+        <a 
+          href="/cart" 
+          style="
+            font-size: 13px; 
+            color: #4f46e5; 
+            text-decoration: none;
+            font-weight: 500;
+          "
+          onmouseover="this.style.textDecoration='underline'"
+          onmouseout="this.style.textDecoration='none'"
+        >
+          Go to your cart
+        </a>
+      </div>
+    </div>
+  `,
+    });
+
+    addToCart(product);
   };
 
   if (loading) {
@@ -63,42 +101,6 @@ export default function Products() {
 
   return (
     <section className="text-gray-400 body-font">
-      {/* Cart Details */}
-      <div className="mt-8 bg-slate-100 p-6 rounded-lg shadow-md">
-        <h2 className="text-lg font-black text-black text-center mb-3">
-          Cart Details
-        </h2>
-        {cart.length > 0 ? (
-          <ul className="space-y-4">
-            {cart.map((item, index) => (
-              <li
-                key={index}
-                className="flex justify-between items-center bg-white shadow-sm p-4 rounded-md"
-              >
-                <div>
-                  <p className="font-medium text-slate-900">{item.productName}</p>
-                  <p>{item.category}</p>
-                  <p className="text-sm text-[#111111]">
-                    {" "}
-                    MRP : ₹{item.price.toFixed(2)}
-                  </p>
-                </div>
-                <img
-                  src={item.imageUrl}
-                  alt={item.productName}
-                  width={50}
-                  height={50}
-                  className="rounded-md"
-                />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-black text-center">
-            Your cart is currently empty. Add some products to get started!
-          </p>
-        )}
-      </div>
 
       {/* Products Section */}
       <div className="container px-5 py-24 mx-auto">
@@ -109,13 +111,13 @@ export default function Products() {
           {filteredProducts.map((product, i) => (
             <div
               key={i}
-              className="lg:w-1/4 md:w-1/2 p-4 w-[348px] hover:duration-700 hover:scale-105 transition-transform ease-in-out"
+              className="lg:w-1/3 md:w-1/2 p-4 w-[348px] hover:duration-700 hover:scale-105 transition-transform ease-in-out"
             >
               <div className="block relative lg:h-[348px] h-auto rounded overflow-hidden">
                 <Link href={`/product/${product.slug.current}`} key={i}>
                   <img
                     alt={product.productName}
-                    className="object-cover object-center lg:w-[348px] lg:h-[348px] w-auto h-auto block cursor-pointer"
+                    className="object-cover object-center w-full h-full block cursor-pointer"
                     src={product.imageUrl}
                   />
                 </Link>
@@ -139,7 +141,7 @@ export default function Products() {
                 {/* Add to Cart Functionality */}
                 <div className="my-5">
                   <button
-                    onClick={() => addToCart(product)}
+                    onClick={(e) => handleAddToCart(e, product)}
                     className="flex flex-row justify-center gap-3 text-white my-10 bg-[#111111] py-3 px-6 focus:outline-none hover:bg-indigo-600 rounded-lg w-full duration-700"
                   >
                     <HiMiniShoppingCart className="text-white text-2xl" />

@@ -1,18 +1,19 @@
 import React from "react";
+import Products from "../components/Products";
 
-export default function Products() {
+export default function Women() {
   return (
-    <section className="text-gray-400 body-font">
+    <>
+    {/* <section className="text-gray-400 body-font">
       <div className="container px-5 py-24 mx-auto">
-      <h1 className='text-3xl text-gray-600 font-semibold mb-7'>Women (11)</h1>
+        <h1 className='text-3xl text-gray-600 font-semibold mb-7'>Women (11)</h1>
         <div className="flex flex-wrap m-4 lg:-m-4">
           <div className="lg:w-1/4 md:w-1/2 p-4 w-[348px]">
             <a className="block relative h-[348px] rounded overflow-hidden">
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle3.png"
-              />
+                src="/images/Rectangle3.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -34,8 +35,7 @@ export default function Products() {
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle5.png"
-              />
+                src="/images/Rectangle5.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -57,8 +57,7 @@ export default function Products() {
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle6.png"
-              />
+                src="/images/Rectangle6.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -80,8 +79,7 @@ export default function Products() {
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle11.png"
-              />
+                src="/images/Rectangle11.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -100,15 +98,14 @@ export default function Products() {
             </div>
           </div>
 
-        
+
 
           <div className="lg:w-1/4 md:w-1/2 p-4 w-[348px]">
             <a className="block relative h-[348px] rounded overflow-hidden">
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle13.png"
-              />
+                src="/images/Rectangle13.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -129,8 +126,7 @@ export default function Products() {
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle14.png"
-              />
+                src="/images/Rectangle14.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -146,16 +142,15 @@ export default function Products() {
               </p>
             </div>
           </div>
-          
-         
+
+
 
           <div className="lg:w-1/4 md:w-1/2 p-4 w-[348px]">
             <a className="block relative h-[348px] rounded overflow-hidden">
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle17.png"
-              />
+                src="/images/Rectangle17.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -171,17 +166,16 @@ export default function Products() {
               </p>
             </div>
           </div>
-         
 
-         
+
+
 
           <div className="lg:w-1/4 md:w-1/2 p-4 w-[348px]">
             <a className="block relative h-[348px] rounded overflow-hidden">
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle20.png"
-              />
+                src="/images/Rectangle20.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -204,8 +198,7 @@ export default function Products() {
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle21.png"
-              />
+                src="/images/Rectangle21.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -226,8 +219,7 @@ export default function Products() {
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle22.png"
-              />
+                src="/images/Rectangle22.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -245,18 +237,17 @@ export default function Products() {
               </p>
             </div>
           </div>
-      
-   
-      
-          
+
+
+
+
 
           <div className="lg:w-1/4 md:w-1/2 p-4 w-[348px]">
             <a className="block relative h-[348px] rounded overflow-hidden">
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[348px] h-[348px] block hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer"
-                src="/images/Rectangle29.png"
-              />
+                src="/images/Rectangle29.png" />
             </a>
             <div className="mt-4">
               <h3 className="text-[#9E3500] text-[15px] tracking-widest title-font mb-1">
@@ -272,9 +263,10 @@ export default function Products() {
               </p>
             </div>
           </div>
-        
+
         </div>
       </div>
-    </section>
+    </section> */}
+    <Products /></>
   );
 }

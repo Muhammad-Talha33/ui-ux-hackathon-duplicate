@@ -1,97 +1,53 @@
-import React from 'react'
+import React from 'react';
+
+const categories = [
+  {
+    title: 'Icons',
+    items: ['Air Force 1', 'Huarache', 'Air Max 90', 'Air Max 95'],
+  },
+  {
+    title: 'Shoes',
+    items: ['All Shoes', 'Custom Shoes', 'Jordan Shoes', 'Running Shoes'],
+  },
+  {
+    title: 'Clothing',
+    items: ['All Clothing', 'Modest Wear', 'Hoodies & Pullovers', 'Shirts & Tops'],
+  },
+  {
+    title: "Kids'",
+    items: [
+      'Infant & Toddler Shoes',
+      "Kids' Shoes",
+      "Kids' Jordan Shoes",
+      "Kids' Basketball Shoes",
+    ],
+  },
+];
 
 export default function Category() {
   return (
     <section className="text-black body-font">
-  <div className="container px-[104px] lg:px-52 py-24 mx-auto">
-    
-    <div className="flex flex-wrap -m-4">
-      <div className="p-4 lg:w-1/4 sm:w-1/2 w-full">
-        <h2 className="font-semibold title-font tracking-widest text-black mb-4 text-sm text-center sm:text-center hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer">Icons</h2>
-        <nav className="flex flex-col sm:items-center sm:text-left text-[#757575] text-center items-left -mb-1 space-y-4 ">
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-            Air Force 1
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Huarache
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Air Max 90
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Air Max 95
-          </a>
-        </nav>
+      <div className="container mx-auto px-6 md:px-12 lg:px-24 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {categories.map((category) => (
+            <div key={category.title}>
+              <h2 className="text-sm font-semibold tracking-widest text-center text-black mb-4 transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+                {category.title}
+              </h2>
+              <nav className="flex flex-col items-center space-y-3 text-[#757575] text-sm">
+                {category.items.map((item) => (
+                  <button
+                    key={item}
+                    className="hover:text-black transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </nav>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div className="p-4 lg:w-1/4 sm:w-1/2 w-full">
-      <h2 className="font-semibold title-font tracking-widest text-black mb-4 text-sm text-center sm:text-center hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer">Shoes</h2>
-        <nav className="flex flex-col sm:items-center sm:text-left text-[#757575] text-center items-left -mb-1 space-y-4 ">
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-            All Shoes
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Custom Shoes
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-            Jordan Shoes
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Running Shoes
-          </a>
-        </nav>
-      </div>
-      
-      <div className="p-4 lg:w-1/4 sm:w-1/2 w-full">
-      <h2 className="font-semibold title-font tracking-widest text-black mb-4 text-sm text-center sm:text-center hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer">Clothing</h2>
-        <nav className="flex flex-col sm:items-center sm:text-left text-[#757575] text-center items-left -mb-1 space-y-4">
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          All Clothing
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Modest Wear
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Hoodies & Pullovers
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Shirts & Tops
-          </a>
-        </nav>
-      </div>
-
-      <div className="p-4 lg:w-1/4 sm:w-1/2 w-full">
-       <h2 className="font-semibold title-font tracking-widest text-black mb-4 text-sm text-center sm:text-center hover:scale-125 transition-transform duration-500 ease-in-out cursor-pointer">Kids&apos;</h2>
-        <nav className="flex flex-col sm:items-center sm:text-left text-[#757575] text-center items-left -mb-1 space-y-4 ">
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Infant & Toddler Shoes
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Kids&apos; Shoes
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Kids&apos; Jordan Shoes
-          </a>
-
-          <a className='hover:text-black cursor-pointer hover:scale-125 transition-transform duration-500 ease-in-out'>
-          Kids&apos; Basketball Shoes
-          </a>
-        </nav>
-      </div>
-    </div>
-    
-  </div>
-</section>
-  )
+    </section>
+  );
 }

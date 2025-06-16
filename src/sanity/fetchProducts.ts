@@ -2,6 +2,7 @@ import { client } from "./lib/client";
 
 export const fetchProducts = async () => {
     const query = `*[_type == "product"]{
+    _id,
     productName,
     slug,
     category,

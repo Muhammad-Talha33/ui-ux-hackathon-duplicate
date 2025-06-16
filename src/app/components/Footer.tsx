@@ -163,12 +163,12 @@ export default function Footer() {
           </div>
           <div className="sm:flex sm:items-center sm:justify-evenly">
             <IoLocationSharp className="text-white" />
-            <h3 className="my-10 ">India </h3>
+            <h3 className="mb-3 md:mb-0 md:my-10 text-white">India</h3>
             <p className="text-[#7E7E7E] lg:mx-6">
               © 2023 Nike, Inc. All Rights Reserved
             </p>
           </div>
-          <div className="sm:flex sm:justify-between sm:items-center gap-10 lg:ml-64">
+          <div className="sm:flex sm:justify-between sm:items-center gap-10 xl:ml-64">
             <p className="text-[#7E7E7E] ">Guides</p>
             <p className="text-[#7E7E7E] ">Terms of Sale</p>
             <p className="text-[#7E7E7E] ">Terms of Use</p>
