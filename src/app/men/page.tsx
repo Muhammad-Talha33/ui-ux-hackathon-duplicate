@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Products from "../components/Products";
 
 export default function men() {
   return (
-    <>
+    <Suspense
+      fallback={<div className="text-center py-20">Loading products...</div>}
+    >
       {/* <section className="text-gray-400 body-font">
         <div className="container px-5 py-24 mx-auto">
           <h1 className="text-3xl text-gray-600 font-semibold mb-7">
@@ -379,7 +381,9 @@ export default function men() {
           </div>
         </div>
       </section> */}
-      <Products />
-    </>
+      <div>
+        <Products />
+      </div>
+    </Suspense>
   );
 }
