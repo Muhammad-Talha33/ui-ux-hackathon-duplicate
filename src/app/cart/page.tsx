@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Product } from "../components/Products";
-import { getCartItems, removeFromCart, updateCartQuantity } from "../actions/action";
+import { getCartItems, removeFromCart } from "../actions/action";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
